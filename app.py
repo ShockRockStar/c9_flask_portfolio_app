@@ -78,34 +78,8 @@ def time_post():
               
             return render_template('time.html', result=answer)
 	
-conversion = {'in':[2.54,'cm'],'cm':[0.393701,'in'],'ft':[0.3048,'m'],'m':[3.28084,'ft'],'lb':[0.453592,'kg'],'kg':[2.20462,'lb']}
 
-def convert(number,unit):
-  return number * conversion[unit][0]
-
-def find_bmi(weight,height): #in kg/m
-  return weight/(height**2)
-
-def bmi_calc():
-  print('Do you use inches or centimeters?')
-  unit = input('Enter "i" for inches or "c" for centimeters: ')
-  if unit == "i":
-    feet = int(input('Enter your height in feet: '))
-    inches = int(input('And how many inches?'))
-    height_m = convert(feet*12 + inches,'in') / 100
-    pounds = int(input('Enter your weight in lbs: '))
-    weight_kg = convert(pounds,'lb')
-  if unit == "c":
-    height_m = int(input('Enter your height in cm: ')) / 100
-    weight_kg = int(input('Enter your weight in kgs: '))
-  
-  #print("Your height in m is: " + str(height_m))
-  #print("Your weight in kg is: " + str(weight_kg))
-  print("Your BMI is: " + str(find_bmi(weight_kg,height_m)))
-
-bmi_calc()
-
-         
+       
 
 @app.route('/python_apps')
 def python_apps_page():
